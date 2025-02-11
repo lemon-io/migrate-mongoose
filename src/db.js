@@ -12,7 +12,7 @@ function initializeDB( collection = 'migrations', dbConnection) {
     createdAt: Date,
     state: {
       type: String,
-      enum: ['down', 'up'],
+      enum: ['down', 'up', 'running'],
       default: 'down'
     }
   }, {

@@ -166,6 +166,8 @@ class Migrator {
       }
 
       try {
+		await this.migrationModel.where({ name: migration.name }).updateMany({ $set: { state: 'running' } });
+
         await new Promise((resolve, reject) => {
           const callPromise = migrationFunctions[direction].call(
             this.connection.model.bind(this.connection),
